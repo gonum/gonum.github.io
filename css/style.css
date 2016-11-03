@@ -68,6 +68,13 @@ li {
 	padding-bottom: 10px;
 }
 
+/****** LOGO ******/
+
+.logo{
+	height:60px;
+	width: 60px;
+}
+
 /****** COLORS ******/
 .primary {
 	color: #00aeef;
