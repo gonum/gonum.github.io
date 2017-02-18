@@ -1,0 +1,96 @@
+/****** Typography ******/
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Lora', times, serif;
+	font-weight: normal;
+	text-align: center;
+}
+h1 {
+	font-size: 60px;
+	padding-bottom: 30px;
+}
+h2 {
+	font-size: 48px;
+	padding-bottom: 20px;
+}
+h3 {
+	font-size: 28px;
+}
+p, li {
+	font-family: 'Open Sans', helvetica, arial, sans-serif;
+}
+p, li {
+	font-size: 18px;
+	line-height: 30px;
+}
+p.large{
+	font-size: 24px;
+	line-height: 35px;
+	padding-bottom: 30px;
+}
+/****** Other Things ******/
+.button{
+	background-color: #00aeef;
+}
+
+a.button {
+	font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	letter-spacing: .125em;
+	text-transform: uppercase;
+	color: #fff;
+}
+.center{
+	text-align: center;
+}
+/****** Header ******/
+header {
+	padding: 40px 60px 30px 60px;
+}
+header ul, header h3 {
+	display: inline;
+}
+header li {
+	display: inline;
+	font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	letter-spacing: .1em;
+	text-transform: uppercase;
+	color: #fff;
+	padding-left: 25px;
+}
+
+/****** Sections ******/
+section{
+	padding: 35px 0 60px 0;
+	border-bottom: solid 1px #231f20;
+}
+li {
+	padding-bottom: 10px;
+}
+
+/****** LOGO ******/
+
+.logo{
+	height:60px;
+	width: 60px;
+}
+
+/****** COLORS ******/
+.primary {
+	color: #00aeef;
+}
+.primary-bg {
+	background-color: #00aeef;
+}
+.white {
+	color: #fff;
+}
+.white-bg{
+	background-color: #fff;
+}
+.dark {
+	color: #231f20;
+}
+.dark-bg{
+	background-color: #231f20;
+}

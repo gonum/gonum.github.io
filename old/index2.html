@@ -1,0 +1,96 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+    <header class="primary-bg white">
+      <div class="row">
+        <div class="large-4 columns">
+          <img src="gophernumerical.png" class="logo" alt="Gonum Logo">
+          <h3 class="white">Gonum</h3>
+        </div>
+        <div class="large-8 columns">
+          <ul>
+            <li>Packages</li>
+            <li>Tutorials</li>
+            <li>Blog</li>
+            <li>Publications</li>
+            <li>Reference</li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <section id="intro">
+      <div class="row">
+        <div class="large-12 small-12 columns">
+          <h1>Clear, consistent, and composable scientific code</h1>
+          <p class="large center">Gonum is a set of open-source scientific tools for the <a href="http://golang.org" target="_blank">Go programming language</a>. Gonum is fast and enables easy parallel computation, embedded in a great environment. Go code is easy to read, encouraging reproducible science.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-4 columns center"><a href="#" class="button">Why Go?</a></div>
+        <div class="large-4 columns center"><a href="#install" class="button">Get the Code</a></div>
+        <div class="large-4 columns center"><a href="#participate" class="button">Participate</a></div>
+      </div>
+    </section><!-- / intro-->
+    <section id="install">
+      <div class="row">
+        <div class="large-12 small-12 columns">
+          <h2>Installing Gonum</h2>
+          <ol>
+            <li>Follow the instructions to <a href="http://golang.org/install">install Go</a></li>
+            <li>Download a Gonum package using <br><code>go get -u -t gonum.org/pkgname</code><br> or  <br><code>go get -u -t gonum.org/pkgname/subpkg</code></li>
+            <li>That's it!</li>
+          </ol>
+          <p>For example, the matrix package implements functions and methods for using and manipulating matrices.<br><code>go get -u -t gonum.org/matrix</code></p>
+          <p>
+            A simple "Hello, Gonum" script to test installation:
+            <code>
+              package main
+
+              import (
+                "fmt"
+
+                "gonum.org/matrix"
+              )
+
+              func main() {
+                m := matrix.NewDense(5, 5, nil)
+                fmt.Println("%v\n", matrix.Formatted(m))
+              }
+            </code>
+          </p>
+          <p>For a detailed list of packages;</p>
+          <div class="center"><a href="packages.html" class="button">See all our packages</a></div>
+        </div>
+      </div>
+    </section><!-- / install-->
+    <section id="participate">
+      <div class="row">
+        <div class="large-12 small-12 columns">
+          <h2>Participate</h2>
+          <div class="push-1 large-5 small-12 columns">
+            <h3 class="center">Discuss Gonum on our forum</h3>
+            <div class="center"><a href="http://" class="button">Discuss</a></div>
+          </div>
+          <div class="pull-1 large-5 small-12 columns">
+            <h3 class="center">File bugs and contriubute <br class="hide-for-medium-down">on GitHub</h3>
+            <div class="center"><a href="http://github.com/gonum" class="button">Contribute</a></div>
+          </div>
+        </div>
+      </div>
+    </section><!-- / participate-->
+    
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
