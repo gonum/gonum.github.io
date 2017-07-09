@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2 on Gonum</title>
+    <link>https://gonum.org/publication_types/2/</link>
+    <description>Recent content in 2 on Gonum</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Gonum Authors</copyright>
+    <lastBuildDate>Thu, 08 Jun 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/publication_types/2/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Estimating Mixture Entropy with Pairwise Distances</title>
+      <link>https://gonum.org/publication/mixture_entropy/</link>
+      <pubDate>Thu, 08 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://gonum.org/publication/mixture_entropy/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

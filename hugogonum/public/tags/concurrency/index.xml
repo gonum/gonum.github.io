@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Concurrency on Gonum</title>
+    <link>https://gonum.org/tags/concurrency/</link>
+    <description>Recent content in Concurrency on Gonum</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Gonum Authors</copyright>
+    <lastBuildDate>Fri, 12 Jun 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/concurrency/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Introduction to Go and Concurrency</title>
+      <link>https://gonum.org/talks/intro_to_go_and_concurrency/</link>
+      <pubDate>Fri, 12 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://gonum.org/talks/intro_to_go_and_concurrency/</guid>
+      <description>&lt;p&gt;See the &lt;a href=&#34;http://talks.godoc.org/github.com/gonum/talks/2015/intro_concurrency.slide#1&#34; target=&#34;_blank&#34;&gt;slides&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

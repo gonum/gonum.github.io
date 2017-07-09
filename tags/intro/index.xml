@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Intro on Gonum</title>
+    <link>https://gonum.org/tags/intro/</link>
+    <description>Recent content in Intro on Gonum</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Gonum Authors</copyright>
+    <lastBuildDate>Sun, 09 Jul 2017 12:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/intro/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>The Gonum Numerical Computing Packages</title>
+      <link>https://gonum.org/post/introtogonum/</link>
+      <pubDate>Sun, 09 Jul 2017 12:00:00 +0000</pubDate>
+      
+      <guid>https://gonum.org/post/introtogonum/</guid>
+      <description>
+
+&lt;h2 id=&#34;gonum-the-basics&#34;&gt;Gonum &amp;ndash; The Basics&lt;/h2&gt;
+
+&lt;p&gt;Gonum is a set of packages designed to make writing numeric and scientific
+algorithms productive, performant, and scalable.&lt;/p&gt;
+
+&lt;p&gt;Gonum is a set of packages written in the
+&lt;a href=&#34;https://www.golang.org&#34; target=&#34;_blank&#34;&gt;Go programming language&lt;/a&gt; (more on Go later), and is
+not a language on its own.
+This makes Gonum similar to &lt;a href=&#34;https://www.numpy.org&#34; target=&#34;_blank&#34;&gt;numpy&lt;/a&gt; and
+&lt;a href=&#34;https://www.scipy.org&#34; target=&#34;_blank&#34;&gt;scipy&lt;/a&gt;, libraries built on top of
+&lt;a href=&#34;https://www.python.org&#34; target=&#34;_blank&#34;&gt;python&lt;/a&gt;, and different from
+&lt;a href=&#34;https://julialang.org/&#34; target=&#34;_blank&#34;&gt;Julia&lt;/a&gt; and &lt;a href=&#34;https://www.mathworks.com/&#34; target=&#34;_blank&#34;&gt;Matlab&lt;/a&gt;
+which are full programming languages.&lt;/p&gt;
+
+&lt;p&gt;Gonum contains libraries for &lt;a href=&#34;https://godoc.org/gonum.org/v1/gonum/mat&#34; target=&#34;_blank&#34;&gt;matrices and linear algebra&lt;/a&gt;;
+&lt;a href=&#34;https://godoc.org/gonum.org/v1/gonum/stat&#34; target=&#34;_blank&#34;&gt;statistics&lt;/a&gt;,
+&lt;a href=&#34;https://godoc.org/gonum.org/v1/gonum/stat/distuv&#34; target=&#34;_blank&#34;&gt;probability&lt;/a&gt;
+&lt;a href=&#34;https://godoc.org/gonum.org/v1/gonum/stat/distmv&#34; target=&#34;_blank&#34;&gt;distributions&lt;/a&gt;,
+and &lt;a href=&#34;https://godoc.org/gonum.org/v1/gonum/stat/sampleuv&#34; target=&#34;_blank&#34;&gt;sampling&lt;/a&gt;; tools for
+&lt;a href=&#34;https://godoc.org/gonum.org/v1/gonum/diff/fd&#34; target=&#34;_blank&#34;&gt;function differentiation&lt;/a&gt;,
+&lt;a href=&#34;https://godoc.org/gonum.org/v1/gonum/integrate/quad&#34; target=&#34;_blank&#34;&gt;integration&lt;/a&gt;,
+and &lt;a href=&#34;https://godoc.org/gonum.org/v1/gonum/optimize&#34; target=&#34;_blank&#34;&gt;optimization&lt;/a&gt;;
+&lt;a href=&#34;https://godoc.org/gonum.org/v1/gonum/graph&#34; target=&#34;_blank&#34;&gt;network&lt;/a&gt; creation and analysis; and more.&lt;/p&gt;
+
+&lt;h2 id=&#34;why-use-gonum&#34;&gt;Why use Gonum&lt;/h2&gt;
+
+&lt;p&gt;We encourage you to use Go and Gonum if&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;You are tired of sluggish performance, and with fighting vectorization and C&lt;/li&gt;
+&lt;li&gt;You are struggling with managing programs as they grow larger and/or&lt;/li&gt;
+&lt;li&gt;You struggle to re-use even the code you tried to make reusable&lt;/li&gt;
+&lt;li&gt;You would like easy access to parallel computing&lt;/li&gt;
+&lt;li&gt;You want code to be fully transparent, and you want the ability to read the source code you use&lt;/li&gt;
+&lt;li&gt;You&amp;rsquo;d like a compiler to catch mistakes early, but hate fighting linker errors and unintelligible compile errors&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;gonum-philosophy&#34;&gt;Gonum Philosophy&lt;/h2&gt;
+
+&lt;p&gt;The Gonum packages are designed to be simple, efficient and composable.
+There is a tension, especially in scientific computing, between ease and simplicity.
+Gonum, &lt;a href=&#34;https://commandcenter.blogspot.com/2012/06/less-is-exponentially-more.html&#34; target=&#34;_blank&#34;&gt;like the Go language itself&lt;/a&gt;,
+aims first to provide reliable and predictable code, while maintaining
+ease-of-use.
+Gonum is different from other popular scientific libraries, in that the Go language
+does not allow operator or method overloading.
+On the surface, this often means that the same algorithm requires a few more
+lines of code in Go.
+We fully recognize that sexy one-liners are rare with Gonum.&lt;/p&gt;
+
+&lt;p&gt;We accept this cost because we believe it comes with an enormous benefit.
+The Gonum function and method signatures make the algorithmic outputs clear,
+and it is easy to identify the code being executed and examine the implementation.
+Science is built on understanding how an experiment was performed and
+what the results are.
+We believe scientific code should be no different.
+In fact, Gonum is partly distinguished from other libraries in that you only need
+one programming language to read Gonum code (that said, it is also easy to call
+into existing C and Fortran libraries).
+This philosophy of simplicity has many follow-on benefits.
+For example, dense one-liners can be hard to understand, creating a barrier for
+others to confirm correctness, and making future modifications difficult.
+Additionally, one-liners often obscure the necessary operations to execute that
+line of code.
+This creates a tension between code that is terse, and a targeted implementation
+that is efficient.
+The construction of Gonum encourages users to implement algorithms in a uniform
+style, making the code easy to read and consistent between users.&lt;/p&gt;
+
+&lt;p&gt;The use of Go as a base language has many benefits beyond simplicity.
+Go is fast, approaching the speed of C.
+Go&amp;rsquo;s language primitives are great for parallel computing, and in fact Gonum
+code can often be made to run in parallel by setting a flag.
+Go is designed for &lt;a href=&#34;https://talks.golang.org/2012/splash.article&#34; target=&#34;_blank&#34;&gt;&amp;ldquo;programming in the large&amp;rdquo;&lt;/a&gt;,
+a huge benefit for building an ecosystem of libraries that work with and build
+on top of one another.
+Go has extremely legible compile errors, full stack traces, trivial package downloading,
+automatic makefiles and import resolution, code formatting tools, easy code documentation,
+a race detector, and the list goes on.&lt;/p&gt;
+
+&lt;p&gt;We believe in a new foundation for scientific computing, and we hope you&amp;rsquo;ll join us.
+Please check back for more discussion on the philosophy of Gonum and the design
+decisions for specific packages.&lt;/p&gt;
+
+&lt;h2 id=&#34;getting-started-with-gonum&#34;&gt;Getting started with Gonum&lt;/h2&gt;
+
+&lt;h3 id=&#34;downloading-the-libraries&#34;&gt;Downloading the libraries&lt;/h3&gt;
+
+&lt;p&gt;First, you need to &lt;a href=&#34;https://golang.org/doc/install&#34; target=&#34;_blank&#34;&gt;install Go&lt;/a&gt; if it is not
+already installed on your machine.
+It is recommended that you use the most recent version of Go.
+Run&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;go get -u -t gonum.org/v1/gonum/...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;to download the main set of Gonum packages.
+That&amp;rsquo;s it!&lt;/p&gt;
+
+&lt;p&gt;You can test that everything is working properly with&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;go test gonum.org/v1/...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will take a few minutes.
+Packages should all have an &amp;ldquo;ok&amp;rdquo; or &amp;ldquo;?&amp;rdquo; next to them.
+While the tests are running, please feel free to browse the source code!&lt;/p&gt;
+
+&lt;h3 id=&#34;learning-go&#34;&gt;Learning Go&lt;/h3&gt;
+
+&lt;p&gt;The &lt;a href=&#34;https://tour.golang.org/&#34; target=&#34;_blank&#34;&gt;Go tour&lt;/a&gt; is an excellent introduction
+to the Go programming language.
+For quick experiments with the language, the &lt;a href=&#34;https://play.golang.org/&#34; target=&#34;_blank&#34;&gt;Go playground&lt;/a&gt;
+is a very nice sandbox, though unfortunately you cannot import the Gonum librares.
+We also recommend reading the &lt;a href=&#34;https://golang.org/doc/faq&#34; target=&#34;_blank&#34;&gt;Go FAQ&lt;/a&gt; and
+&lt;a href=&#34;https://golang.org/doc/effective_go.html&#34; target=&#34;_blank&#34;&gt;effective Go&lt;/a&gt; pages.
+If you have specific questions, check out the Go language
+&lt;a href=&#34;https://golang.org/ref/spec&#34; target=&#34;_blank&#34;&gt;specification&lt;/a&gt;, which provides an official description
+of the behavior of the language.
+The Go specification is remarkably short and legible compared with other
+language specifications, and a better situation than for the many languages
+without an official specification.&lt;/p&gt;
+
+&lt;h3 id=&#34;learning-gonum&#34;&gt;Learning Gonum&lt;/h3&gt;
+
+&lt;p&gt;The best way to learn about particular packages and functions is through
+the source code documentation.
+The godoc &lt;a href=&#34;https://godoc.org&#34; target=&#34;_blank&#34;&gt;website&lt;/a&gt; automatically generates documentation
+pages from publically available source code.
+For most Go packages (not just Gonum), going to &lt;code&gt;https://godoc.org/&amp;lt;package-import-path&amp;gt;&lt;/code&gt;
+will give you documentation about that particular package.
+For example, &lt;code&gt;https://godoc.org/gonum.org/v1/gonum/mat&lt;/code&gt; will give documentation
+about Gonum&amp;rsquo;s matrix package, as well as documentation for specific functions.
+Go to &lt;code&gt;https://godoc.org/gonum.org/v1/gonum/graph/topo&lt;/code&gt; and you will see
+documentation about our graph topology routines, for example for finding the
+&amp;ldquo;strongly connected components&amp;rdquo; of a graph.
+Note that sometimes godoc lists functions below the relevant type, for example
+the function to create a new dense matrix &lt;code&gt;mat.NewDense&lt;/code&gt;, is listed under the
+&lt;code&gt;Dense&lt;/code&gt; type.
+At the bottom of the index you will see a list of specific code examples,
+and at the very bottom of the godoc page, you can see a list of subpackages,
+if any (for instance, scroll to the bottom of &lt;code&gt;https://godoc.org/gonum.org/v1/gonum/stat&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;Please also check future posts on this blog for extended commentary on Gonum
+packages and their effective use.&lt;/p&gt;
+
+&lt;p&gt;For questions on the Gonum libraries, please join us at the
+&lt;a href=&#34;https://groups.google.com/forum/#!forum/gonum-dev&#34; target=&#34;_blank&#34;&gt;Gonum-dev&lt;/a&gt; mailing list.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-can-i-help&#34;&gt;How can I help?&lt;/h2&gt;
+
+&lt;p&gt;The Gonum contributors are a self-assembled group of scientists, engineers and
+programmers from around the world.
+If you&amp;rsquo;re worried that you don&amp;rsquo;t know us, don&amp;rsquo;t be!
+At the time of writing, none of the primary contributors have ever met in person,
+and until recently, we all lived in different time zones.
+Please file issues you find at our
+&lt;a href=&#34;https://github.com/gonum/gonum&#34; target=&#34;_blank&#34;&gt;github repository&lt;/a&gt;.
+Pull requests are encouraged, please see the &lt;a href=&#34;https://github.com/gonum/gonum/blob/master/CONTRIBUTING.md&#34; target=&#34;_blank&#34;&gt;contributing guidelines&lt;/a&gt;
+for more details.
+Small changes can be proposed directly, larger changes should be discussed at the
+Gonum-dev mailing list (linked above).&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;By Brendan Tracey&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Introduction to Go and Concurrency</title>
+      <link>https://gonum.org/talks/intro_to_go_and_concurrency/</link>
+      <pubDate>Fri, 12 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://gonum.org/talks/intro_to_go_and_concurrency/</guid>
+      <description>&lt;p&gt;See the &lt;a href=&#34;http://talks.godoc.org/github.com/gonum/talks/2015/intro_concurrency.slide#1&#34; target=&#34;_blank&#34;&gt;slides&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
