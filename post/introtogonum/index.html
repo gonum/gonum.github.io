@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <meta name="go-import" content="gonum.org/v1/gonum git https://github.com/gonum/gonum">
+  <meta name="go-import" content="gonum.org/v1/plot git https://github.com/gonum/plot">
+  <meta name="go-import" content="gonum.org/v1/netlib git https://github.com/gonum/netlib">
+  <meta name="go-import" content="gonum.org/v1/hdf5 git https://github.com/gonum/hdf5">
+
+  
+  <meta name="go-source" content="gonum.org/v1/gonum https://github.com/gonum/gonum/ https://github.com/gonum/gonum/tree/master{/dir} https://github.com/gonum/gonum/blob/master{/dir}/{file}#L{line}"/>
+  <meta name="go-source" content="gonum.org/v1/plot https://github.com/gonum/plot/ https://github.com/gonum/plot/tree/master{/dir} https://github.com/gonum/plot/blob/master{/dir}/{file}#L{line}"/>
+  <meta name="go-source" content="gonum.org/v1/netlib https://github.com/gonum/netlib/ https://github.com/gonum/netlib/tree/master{/dir} https://github.com/gonum/netlib/blob/master{/dir}/{file}#L{line}"/>
+  <meta name="go-source" content="gonum.org/v1/hdf5 https://github.com/gonum/hdf5/ https://github.com/gonum/hdf5/tree/master{/dir} https://github.com/gonum/hdf5/blob/master{/dir}/{file}#L{line}">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.24.1" />
+  <meta name="author" content="Gonum Numerical Packages">
+  <meta name="description" content="Consistent, composable, and comprehensible scientific code">
+
+  
+  
+  
+    
+  
+  
+    
+    
+    <link rel="stylesheet" href="/../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.0/css/academicons.min.css" integrity="sha512-GGGNUPDhnG8LEAEDsjqYIQns+Gu8RBs4j5XGlxl7UfRaZBhCCm5jenJkeJL8uPuOXGqgl8/H1gjlWQDRjd3cUQ==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather%7CRoboto+Mono">
+  <link rel="stylesheet" href="/../css/hugo-academic.css">
+  
+
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-79217715-1', 'auto');
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+
+  <link rel="alternate" href="../index.xml" type="application/rss+xml" title="Gonum">
+  <link rel="feed" href="../index.xml" type="application/rss+xml" title="Gonum">
+
+  <link rel="icon" type="image/png" href="/../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/../img/apple-touch-icon.png">
+
+  <link rel="canonical" href="../post/introtogonum/">
+
+  
+
+  <title>The Gonum Numerical Computing Packages | Gonum</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/../">Gonum</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/../#about">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/../#posts">
+            
+            <span>Post</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/../#publications">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/../#contact">
+            
+            <span>Join Us</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <h1 itemprop="name">The Gonum Numerical Computing Packages</h1>
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    <time datetime="2017-07-09 12:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Sun, Jul 9, 2017
+    </time>
+  </span>
+
+  
+
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="/../tags/intro">intro</a
+    >, 
+    
+    <a href="/../tags/philosophy">philosophy</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+
+  
+
+</div>
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h2 id="gonum-the-basics">Gonum &ndash; The Basics</h2>
+
+<p>Gonum is a set of packages designed to make writing numeric and scientific
+algorithms productive, performant, and scalable.</p>
+
+<p>Gonum is a set of packages written in the
+<a href="https://www.golang.org" target="_blank">Go programming language</a> (more on Go later), and is
+not a language on its own.
+This makes Gonum similar to <a href="https://www.numpy.org" target="_blank">numpy</a> and
+<a href="https://www.scipy.org" target="_blank">scipy</a>, libraries built on top of
+<a href="https://www.python.org" target="_blank">python</a>, and different from
+<a href="https://julialang.org/" target="_blank">Julia</a> and <a href="https://www.mathworks.com/" target="_blank">Matlab</a>
+which are full programming languages.</p>
+
+<p>Gonum contains libraries for <a href="https://godoc.org/gonum.org/v1/gonum/mat" target="_blank">matrices and linear algebra</a>;
+<a href="https://godoc.org/gonum.org/v1/gonum/stat" target="_blank">statistics</a>,
+<a href="https://godoc.org/gonum.org/v1/gonum/stat/distuv" target="_blank">probability</a>
+<a href="https://godoc.org/gonum.org/v1/gonum/stat/distmv" target="_blank">distributions</a>,
+and <a href="https://godoc.org/gonum.org/v1/gonum/stat/sampleuv" target="_blank">sampling</a>; tools for
+<a href="https://godoc.org/gonum.org/v1/gonum/diff/fd" target="_blank">function differentiation</a>,
+<a href="https://godoc.org/gonum.org/v1/gonum/integrate/quad" target="_blank">integration</a>,
+and <a href="https://godoc.org/gonum.org/v1/gonum/optimize" target="_blank">optimization</a>;
+<a href="https://godoc.org/gonum.org/v1/gonum/graph" target="_blank">network</a> creation and analysis; and more.</p>
+
+<h2 id="why-use-gonum">Why use Gonum</h2>
+
+<p>We encourage you to use Go and Gonum if</p>
+
+<ul>
+<li>You are tired of sluggish performance, and fighting C and vectorization.</li>
+<li>You are struggling with managing programs as they grow larger.</li>
+<li>You struggle to re-use &ndash; even the code you tried to make reusable.</li>
+<li>You would like easy access to parallel computing.</li>
+<li>You want code to be fully transparent, and want the ability to read the source code you use.</li>
+<li>You&rsquo;d like a compiler to catch mistakes early, but hate fighting linker and unintelligible compile errors.</li>
+</ul>
+
+<h2 id="gonum-philosophy">Gonum Philosophy</h2>
+
+<p>The Gonum packages are designed to be simple, efficient and composable.
+There is a tension, especially in scientific computing, between ease and simplicity.
+Gonum, <a href="https://commandcenter.blogspot.com/2012/06/less-is-exponentially-more.html" target="_blank">like the Go language itself</a>,
+aims first to provide reliable and predictable code, while maintaining
+ease-of-use.
+Gonum is different from other popular scientific libraries, in that the Go language
+does not allow operator or method overloading.
+On the surface, this often means that the same algorithm requires a few more
+lines of code in Go.
+We fully recognize that sexy one-liners are rare with Gonum.</p>
+
+<p>We accept this cost because we believe it comes with an enormous benefit.
+The Gonum function and method signatures make the algorithmic outputs clear,
+and it is easy to identify the code being executed and examine the implementation.
+Science is built on understanding how an experiment was performed and
+what the results are.
+We believe scientific code should be no different.
+In fact, Gonum is partly distinguished from other libraries in that you only need
+one programming language to read Gonum code (that said, it is also easy to call
+into existing C and Fortran libraries).
+This philosophy of simplicity has many follow-on benefits.
+For example, dense one-liners can be hard to understand, creating a barrier for
+others to confirm correctness, and making future modifications difficult.
+Additionally, one-liners often obscure the necessary operations to execute that
+line of code.
+This creates a tension between code that is terse, and a targeted implementation
+that is efficient.
+The construction of Gonum encourages users to implement algorithms in a uniform
+style, making the code easy to read and consistent between users.</p>
+
+<p>The use of Go as a base language has many benefits beyond simplicity.
+Go is fast, approaching the speed of C.
+Go&rsquo;s language primitives are great for parallel computing, and in fact Gonum
+code can often be made to run in parallel by setting a flag.
+Go is designed for <a href="https://talks.golang.org/2012/splash.article" target="_blank">&ldquo;programming in the large&rdquo;</a>,
+a huge benefit for building an ecosystem of libraries that work with and build
+on top of one another.
+Go has extremely legible compile errors, full stack traces, trivial package downloading,
+automatic makefiles and import resolution, code formatting tools, easy code documentation,
+a race detector, and the list goes on.</p>
+
+<p>We believe in a new foundation for scientific computing, and we hope you&rsquo;ll join us.
+Please check back for more discussion on the philosophy of Gonum and the design
+decisions for specific packages.</p>
+
+<h2 id="getting-started-with-gonum">Getting started with Gonum</h2>
+
+<h3 id="downloading-the-libraries">Downloading the libraries</h3>
+
+<p>First, you need to <a href="https://golang.org/doc/install" target="_blank">install Go</a> if it is not
+already installed on your machine.
+It is recommended that you use the most recent version of Go.
+Run</p>
+
+<pre><code>go get -u -t gonum.org/v1/gonum/...
+</code></pre>
+
+<p>to download the main set of Gonum packages.
+That&rsquo;s it!</p>
+
+<p>You can test that everything is working properly with</p>
+
+<pre><code>go test gonum.org/v1/...
+</code></pre>
+
+<p>This will take a few minutes.
+Packages should all have an &ldquo;ok&rdquo; or &ldquo;?&rdquo; next to them.
+While the tests are running, please feel free to browse the source code!</p>
+
+<h3 id="learning-go">Learning Go</h3>
+
+<p>The <a href="https://tour.golang.org/" target="_blank">Go tour</a> is an excellent introduction
+to the Go programming language.
+For quick experiments with the language, the <a href="https://play.golang.org/" target="_blank">Go playground</a>
+is a very nice sandbox, though unfortunately you cannot import the Gonum librares.
+We also recommend reading the <a href="https://golang.org/doc/faq" target="_blank">Go FAQ</a> and
+<a href="https://golang.org/doc/effective_go.html" target="_blank">effective Go</a> pages.
+If you have specific questions, check out the Go language
+<a href="https://golang.org/ref/spec" target="_blank">specification</a>, which provides an official description
+of the behavior of the language.
+The Go specification is remarkably short and legible compared with other
+language specifications, and a better situation than for the many languages
+without an official specification.</p>
+
+<h3 id="learning-gonum">Learning Gonum</h3>
+
+<p>The best way to learn about particular packages and functions is through
+the source code documentation.
+The godoc <a href="https://godoc.org" target="_blank">website</a> automatically generates documentation
+pages from publically available source code.
+For most Go packages (not just Gonum), going to <code>https://godoc.org/&lt;package-import-path&gt;</code>
+will give you documentation about that particular package.
+For example, <code>https://godoc.org/gonum.org/v1/gonum/mat</code> will give documentation
+about Gonum&rsquo;s matrix package, as well as documentation for specific functions.
+Go to <code>https://godoc.org/gonum.org/v1/gonum/graph/topo</code> and you will see
+documentation about our graph topology routines, for example for finding the
+&ldquo;strongly connected components&rdquo; of a graph.
+Note that sometimes godoc lists functions below the relevant type, for example
+the function to create a new dense matrix <code>mat.NewDense</code>, is listed under the
+<code>Dense</code> type.
+At the bottom of the index you will see a list of specific code examples,
+and at the very bottom of the godoc page, you can see a list of subpackages,
+if any (for instance, scroll to the bottom of <code>https://godoc.org/gonum.org/v1/gonum/stat</code>).</p>
+
+<p>Please also check future posts on this blog for extended commentary on Gonum
+packages and their effective use.</p>
+
+<p>For questions on the Gonum libraries, please join us at the
+<a href="https://groups.google.com/forum/#!forum/gonum-dev" target="_blank">Gonum-dev</a> mailing list.</p>
+
+<h2 id="how-can-i-help">How can I help?</h2>
+
+<p>The Gonum contributors are a self-assembled group of scientists, engineers and
+programmers from around the world.
+If you&rsquo;re worried that you don&rsquo;t know us, don&rsquo;t be!
+At the time of writing, none of the primary contributors have ever met in person,
+and until recently, we all lived in different time zones.
+Please file issues you find at our
+<a href="https://github.com/gonum/gonum" target="_blank">github repository</a>.
+Pull requests are encouraged, please see the <a href="https://github.com/gonum/gonum/blob/master/CONTRIBUTING.md" target="_blank">contributing guidelines</a>
+for more details.
+Small changes can be proposed directly, larger changes should be discussed at the
+Gonum-dev mailing list (linked above).</p>
+
+<p><em>By Brendan Tracey</em></p>
+
+    </div>
+  </div>
+
+</article>
+
+<div class="container">
+  <nav>
+  <ul class="pager">
+    
+
+    
+  </ul>
+</nav>
+
+</div>
+
+<div class="article-container">
+  
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2017 Gonum Authors &middot; 
+
+      Powered by the <a href="https://github.com/gcushen/hugo-academic" target="_blank">Academic
+      theme</a> for <a href="http://gohugo.io" target="_blank">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.2/imagesloaded.pkgd.min.js" integrity="sha512-iHzEu7GbSc705hE2skyH6/AlTpOfBmkx7nUqTLGzPYR+C1tRaItbRlJ7hT/D3YQ9SV0fqLKzp4XY9wKulTBGTw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js" integrity="sha512-Z5heTz36xTemt1TbtbfXtTq5lMfYnOkXM2/eWcTTiLU01+Sw4ku1i7vScDc8fWhrP2abz9GQzgKH5NGBLoYlAw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/plugins/ScrollToPlugin.min.js" integrity="sha512-CDeU7pRtkPX6XJtF/gcFWlEwyaX7mcAp5sO3VIu/ylsdR74wEw4wmBpD5yYTrmMAiAboi9thyBUr1vXRPA7t0Q==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    
+    <script src="/../js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/go.min.js"></script>
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML" integrity="sha512-tOav5w1OjvsSJzePRtt2uQPFwBoHt1VZcUq8l8nm5284LEKE9FSJBQryzMBzHxY5P0zRdNqEcpLIRVYFNgu1jw==" crossorigin="anonymous"></script>
+    
+    
+
+  </body>
+</html>
+

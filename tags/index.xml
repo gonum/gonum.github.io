@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Gonum</title>
+    <link>../tags/</link>
+    <description>Recent content in Tags on Gonum</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Gonum Authors</copyright>
+    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="../tags/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Content tagged as &#39;Academic&#39;</title>
+      <link>../tags/academic/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>../tags/academic/</guid>
+      <description>&lt;p&gt;Here is a list of all the content that has been tagged as &lt;em&gt;academic&lt;/em&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Concurrency</title>
+      <link>../tags/concurrency/</link>
+      <pubDate>Fri, 12 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>../tags/concurrency/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Examplecode</title>
+      <link>../tags/examplecode/</link>
+      <pubDate>Fri, 12 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>../tags/examplecode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Intro</title>
+      <link>../tags/intro/</link>
+      <pubDate>Sun, 09 Jul 2017 12:00:00 +0000</pubDate>
+      
+      <guid>../tags/intro/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Philosophy</title>
+      <link>../tags/philosophy/</link>
+      <pubDate>Sun, 09 Jul 2017 12:00:00 +0000</pubDate>
+      
+      <guid>../tags/philosophy/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

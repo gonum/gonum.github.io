@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <meta name="go-import" content="gonum.org/v1/gonum git https://github.com/gonum/gonum">
+  <meta name="go-import" content="gonum.org/v1/plot git https://github.com/gonum/plot">
+  <meta name="go-import" content="gonum.org/v1/netlib git https://github.com/gonum/netlib">
+  <meta name="go-import" content="gonum.org/v1/hdf5 git https://github.com/gonum/hdf5">
+
+  
+  <meta name="go-source" content="gonum.org/v1/gonum https://github.com/gonum/gonum/ https://github.com/gonum/gonum/tree/master{/dir} https://github.com/gonum/gonum/blob/master{/dir}/{file}#L{line}"/>
+  <meta name="go-source" content="gonum.org/v1/plot https://github.com/gonum/plot/ https://github.com/gonum/plot/tree/master{/dir} https://github.com/gonum/plot/blob/master{/dir}/{file}#L{line}"/>
+  <meta name="go-source" content="gonum.org/v1/netlib https://github.com/gonum/netlib/ https://github.com/gonum/netlib/tree/master{/dir} https://github.com/gonum/netlib/blob/master{/dir}/{file}#L{line}"/>
+  <meta name="go-source" content="gonum.org/v1/hdf5 https://github.com/gonum/hdf5/ https://github.com/gonum/hdf5/tree/master{/dir} https://github.com/gonum/hdf5/blob/master{/dir}/{file}#L{line}">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.24.1" />
+  <meta name="author" content="Gonum Numerical Packages">
+  <meta name="description" content="Consistent, composable, and comprehensible scientific code">
+
+  
+  
+  
+    
+  
+  
+    
+    
+    <link rel="stylesheet" href="/../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.0/css/academicons.min.css" integrity="sha512-GGGNUPDhnG8LEAEDsjqYIQns+Gu8RBs4j5XGlxl7UfRaZBhCCm5jenJkeJL8uPuOXGqgl8/H1gjlWQDRjd3cUQ==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather%7CRoboto+Mono">
+  <link rel="stylesheet" href="/../css/hugo-academic.css">
+  
+
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-79217715-1', 'auto');
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+
+  <link rel="alternate" href="../index.xml" type="application/rss+xml" title="Gonum">
+  <link rel="feed" href="../index.xml" type="application/rss+xml" title="Gonum">
+
+  <link rel="icon" type="image/png" href="/../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/../img/apple-touch-icon.png">
+
+  <link rel="canonical" href="../">
+
+  
+
+  <title>Gonum</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/../">Gonum</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/../#about" data-target="#about">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/../#posts" data-target="#posts">
+            
+            <span>Post</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/../#publications" data-target="#publications">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/../#contact" data-target="#contact">
+            
+            <span>Join Us</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+
+<span id="homepage" style="display: none"></span>
+
+
+
+  
+  
+  <section id="about" class="home-section">
+    <div class="container">
+      
+
+
+
+<div class="row" itemprop="author" itemscope itemtype="http://schema.org/Person" itemref="person-email">
+  <div class="col-xs-12 col-md-4">
+    <div id="profile">
+
+      
+      <div class="portrait" style="background-image: url('..img/gophernumerical.png');"></div>
+      <meta itemprop="image" content="..img/gophernumerical.png">
+      
+
+      <div class="portrait-title">
+        <h2 itemprop="name">Gonum Numerical Packages</h2>
+        <h3 itemprop="jobTitle">Consistent, composable, and comprehensible scientific code</h3>
+        
+      </div>
+
+      <link itemprop="url" href="..">
+
+      <ul class="social-icon" aria-hidden="true">
+        
+        
+        <li>
+          <a itemprop="sameAs" href="//github.com/gonum" target="_blank">
+            <i class="fa fa-github big-icon"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a itemprop="sameAs" href="https://groups.google.com/forum/#!forum/gonum-dev" target="_blank">
+            <i class="fa fa-envelope big-icon"></i>
+          </a>
+        </li>
+        
+      </ul>
+
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-8" itemprop="description">
+
+    <p>Gonum is a set of packages designed to make writing numeric and scientific
+algorithms productive, performant, and scalable.</p>
+
+<p>Gonum contains libraries for <a href="https://godoc.org/gonum.org/v1/gonum/mat" target="_blank">matrices and linear algebra</a>;
+<a href="https://godoc.org/gonum.org/v1/gonum/stat" target="_blank">statistics</a>,
+<a href="https://godoc.org/gonum.org/v1/gonum/stat/distuv" target="_blank">probability</a>
+<a href="https://godoc.org/gonum.org/v1/gonum/stat/distmv" target="_blank">distributions</a>,
+and <a href="https://godoc.org/gonum.org/v1/gonum/stat/sampleuv" target="_blank">sampling</a>; tools for
+<a href="https://godoc.org/gonum.org/v1/gonum/diff/fd" target="_blank">function differentiation</a>,
+<a href="https://godoc.org/gonum.org/v1/gonum/integrate/quad" target="_blank">integration</a>,
+and <a href="https://godoc.org/gonum.org/v1/gonum/optimize" target="_blank">optimization</a>;
+<a href="https://godoc.org/gonum.org/v1/gonum/graph" target="_blank">network</a> creation and analysis; and more.</p>
+
+<p>We encourage you to <a href="http://gonum.org/post/introtogonum/" target="_blank">get started</a> with Go and Gonum if</p>
+
+<ul>
+<li>You are tired of sluggish performance, and fighting C and vectorization.</li>
+<li>You are struggling with managing programs as they grow larger.</li>
+<li>You struggle to re-use &ndash; even the code you tried to make reusable.</li>
+<li>You would like easy access to parallel computing.</li>
+<li>You want code to be fully transparent, and want the ability to read the source code you use.</li>
+<li>You&rsquo;d like a compiler to catch mistakes early, but hate fighting linker and unintelligible compile errors.</li>
+</ul>
+
+
+    <div class="row">
+
+      
+
+      
+
+    </div>
+  </div>
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  <section id="posts" class="home-section">
+    <div class="container">
+      
+
+
+
+
+<div class="row">
+  <div class="col-xs-12 col-md-4 section-heading">
+
+    <h1>Recent Posts</h1>
+    
+    
+
+  </div>
+  <div class="col-xs-12 col-md-8">
+
+    
+
+    
+      
+        
+        
+
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="../post/introtogonum/" itemprop="url">The Gonum Numerical Computing Packages</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    <time datetime="2017-07-09 12:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Sun, Jul 9, 2017
+    </time>
+  </span>
+
+  
+
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="/../tags/intro">intro</a
+    >, 
+    
+    <a href="/../tags/philosophy">philosophy</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    <p>An introduction to the philosophy of Gonum and instructions on getting started.</p>
+    
+  </div>
+  <p class="read-more">
+    <a href="../post/introtogonum/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+      
+    
+
+  </div>
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  <section id="publications" class="home-section">
+    <div class="container">
+      
+
+
+
+
+<div class="row">
+  <div class="col-xs-12 col-md-4 section-heading">
+    <h1>Publications using Gonum</h1>
+    
+    
+  </div>
+  <div class="col-xs-12 col-md-8">
+    
+
+    
+    <ul class="fa-ul">
+      
+      <li itemscope itemtype="http://schema.org/CreativeWork">
+  <i class="fa-li fa fa-file-text-o pub-icon" aria-hidden="true"></i>
+  <span itemprop="name">Estimating Mixture Entropy with Pairwise Distances</span>
+  <p>
+
+
+
+<a class="btn btn-primary btn-outline btn-xs" href="../publication/mixture_entropy/">
+  Details
+</a>
+
+
+<a class="btn btn-primary btn-outline btn-xs" href="https://arxiv.org/abs/1706.02419">
+  PDF
+</a>
+
+
+
+
+<a class="btn btn-primary btn-outline btn-xs" href="https://github.com/btracey/mixent">
+  Code
+</a>
+
+
+
+
+</p>
+</li>
+
+      
+    </ul>
+    
+
+  </div>
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  <section id="contact" class="home-section">
+    <div class="container">
+      
+
+
+
+
+<div class="row">
+  <div class="col-xs-12 col-md-4 section-heading">
+    <h1>Mailing List</h1>
+    
+  </div>
+  <div class="col-xs-12 col-md-8">
+    
+
+    <ul class="fa-ul" itemscope>
+
+      
+      <li>
+        <i class="fa-li fa fa-envelope fa-2x" aria-hidden="true"></i>
+        <span id="person-email" itemprop="email"><a href="mailto:https://groups.google.com/forum/#!forum/gonum-dev">https://groups.google.com/forum/#!forum/gonum-dev</a></span>
+      </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+    </ul>
+
+  </div>
+</div>
+
+    </div>
+  </section>
+
+
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2017 Gonum Authors &middot; 
+
+      Powered by the <a href="https://github.com/gcushen/hugo-academic" target="_blank">Academic
+      theme</a> for <a href="http://gohugo.io" target="_blank">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.2/imagesloaded.pkgd.min.js" integrity="sha512-iHzEu7GbSc705hE2skyH6/AlTpOfBmkx7nUqTLGzPYR+C1tRaItbRlJ7hT/D3YQ9SV0fqLKzp4XY9wKulTBGTw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js" integrity="sha512-Z5heTz36xTemt1TbtbfXtTq5lMfYnOkXM2/eWcTTiLU01+Sw4ku1i7vScDc8fWhrP2abz9GQzgKH5NGBLoYlAw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/plugins/ScrollToPlugin.min.js" integrity="sha512-CDeU7pRtkPX6XJtF/gcFWlEwyaX7mcAp5sO3VIu/ylsdR74wEw4wmBpD5yYTrmMAiAboi9thyBUr1vXRPA7t0Q==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    
+    <script src="/../js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/go.min.js"></script>
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML" integrity="sha512-tOav5w1OjvsSJzePRtt2uQPFwBoHt1VZcUq8l8nm5284LEKE9FSJBQryzMBzHxY5P0zRdNqEcpLIRVYFNgu1jw==" crossorigin="anonymous"></script>
+    
+    
+
+  </body>
+</html>
+
